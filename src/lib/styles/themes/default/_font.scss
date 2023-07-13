@@ -1,0 +1,15 @@
+@use '$lib/styles/themes/default/_variables.scss' as *;
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@500;600;700&display=swap');
+:root {
+	font-family: 'Poppins', sans-serif;
+}
+.title {
+	font-weight: 700;
+	font-size: 1.8rem;
+	margin-bottom: size(4);
+}
+.subtitle {
+	font-weight: 500;
+	font-size: 1.3rem;
+	margin-bottom: size(2);
+}

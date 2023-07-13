@@ -1,6 +1,31 @@
+@mixin content-width($width: 900px) {
+	max-width: $width;
+	margin: auto;
+
+	@media (max-width: $width) {
+		padding: size(8);
+	}
+	@media (max-width: 600px) {
+		padding: size(4);
+	}
+}
+@mixin width-max-centered($width: max-content) {
+	margin: auto;
+	width: max-content;
+}
+@mixin flex-gap($gap: 4) {
+	display: flex;
+	gap: size($gap);
+}
+@mixin pseudo($display: block, $pos: absolute, $width: 100%, $height: 100%, $content: '') {
+	content: $content;
+	display: $display;
+	position: $pos;
+	width: $width;
+	heigh: $height;
+}
 @function size($num) {
-	$sizeScale: 0.25rem;
-	@return $num * $sizeScale;
+	@return $num * 0.25rem;
 }
 @function get-color($key, $num, $alpha) {
 	@if $num > 9 or $num < 0 {
