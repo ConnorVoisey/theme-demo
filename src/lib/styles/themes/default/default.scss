@@ -1,0 +1,56 @@
+@use '$lib/styles/themes/default/_variables.scss' as *;
+@use '$lib/styles/themes/default/_buttons.scss' as btn;
+:root {
+	scroll-behavior: smooth;
+}
+.title {
+	font-weight: 700;
+	font-size: 1.8rem;
+	margin-bottom: size(4);
+}
+.subtitle {
+	font-weight: 500;
+	font-size: 1.3rem;
+	margin-bottom: size(2);
+}
+
+.card {
+	padding: size(4);
+	box-shadow: 0.25rem 0.25rem 2rem #00000050;
+	border-radius: size(4);
+	.title,
+	.subtitle {
+		border-bottom: solid 2px #333;
+	}
+}
+
+hr {
+	height: 2px;
+	background-color: #333;
+	width: 100%;
+	box-shadow: 0 0 4rem 0.2rem #00000080;
+}
+
+.form {
+	fieldset {
+		display: flex;
+		flex-direction: column;
+		gap: size(4);
+	}
+	label {
+		p {
+			margin-bottom: size(2);
+			font-weight: 500;
+			font-size: 1em;
+		}
+		input {
+			border-radius: size(2);
+			padding: size(2);
+			border: solid 1px #00000050;
+			transition: 225ms ease-in-out;
+			&:focus {
+				box-shadow: 0 0 0.25rem primary(5);
+			}
+		}
+	}
+}

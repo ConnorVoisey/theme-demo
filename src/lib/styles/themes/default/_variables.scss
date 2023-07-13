@@ -1,0 +1,184 @@
+@function size($num) {
+	$sizeScale: 0.25rem;
+	@return $num * $sizeScale;
+}
+@function get-color($key, $num, $alpha) {
+	@if $num > 9 or $num < 0 {
+		@error 'number not in range';
+	}
+	$color-list: 'primary', 'secondary', 'surface', 'neutral', 'success', 'warning', 'error';
+	@each $current-key in $color-list {
+		@if $key == $current-key {
+			@return hsl(var(--clr-#{$current-key}-#{$num}), $alpha);
+		}
+	}
+	@error 'key not found';
+}
+@function primary($num, $alpha: 1) {
+	@return get-color('primary', $num, $alpha);
+}
+@function secondary($num, $alpha: 1) {
+	@return get-color('secondary', $num, $alpha);
+}
+@function surface($num, $alpha: 1) {
+	@return get-color('surface', $num, $alpha);
+}
+@function success($num, $alpha: 1) {
+	@return get-color('success', $num, $alpha);
+}
+@function warning($num, $alpha: 1) {
+	@return get-color('warning', $num, $alpha);
+}
+@function error($num, $alpha: 1) {
+	@return get-color('error', $num, $alpha);
+}
+:root {
+	/* primary #3584e4 */
+	--clr-primary-0: 213, 97%, 97%; /* #f0f7ff */
+	--clr-primary-1: 213, 95%, 94%; /* #e1eefe */
+	--clr-primary-2: 213, 93%, 89%; /* #c9e0fd */
+	--clr-primary-3: 213, 91%, 84%; /* #b1d2fb */
+	--clr-primary-4: 213, 83%, 67%; /* #65a4f1 */
+	--clr-primary-5: 213, 76%, 55%; /* #3584e3 */
+	--clr-primary-6: 213, 70%, 51%; /* #2b79da */
+	--clr-primary-7: 213, 71%, 47%; /* #236fcd */
+	--clr-primary-8: 213, 80%, 38%; /* #1359ae */
+	--clr-primary-9: 213, 85%, 32%; /* #0c4b97 */
+	/* on primary #f4f7fb */
+	--clr-on-primary-0: 213, 97%, 97%; /* #f0f7ff */
+	--clr-on-primary-1: 213, 95%, 94%; /* #e1eefe */
+	--clr-on-primary-2: 213, 93%, 89%; /* #c9e0fd */
+	--clr-on-primary-3: 213, 91%, 84%; /* #b1d2fb */
+	--clr-on-primary-4: 213, 83%, 67%; /* #65a4f1 */
+	--clr-on-primary-5: 213, 76%, 55%; /* #3584e3 */
+	--clr-on-primary-6: 213, 70%, 51%; /* #2b79da */
+	--clr-on-primary-7: 213, 71%, 47%; /* #236fcd */
+	--clr-on-primary-8: 213, 80%, 38%; /* #1359ae */
+	--clr-on-primary-9: 213, 85%, 32%; /* #0c4b97 */
+
+	/* secondary #ff7800 */
+	--clr-secondary-0: 28, 100%, 96%; /* #fff4eb */
+	--clr-secondary-1: 28, 100%, 92%; /* #ffe9d6 */
+	--clr-secondary-2: 28, 100%, 86%; /* #ffd9b8 */
+	--clr-secondary-3: 28, 100%, 80%; /* #ffc999 */
+	--clr-secondary-4: 28, 100%, 60%; /* #ff9233 */
+	--clr-secondary-5: 28, 100%, 50%; /* #ff7700 */
+	--clr-secondary-6: 28, 100%, 48%; /* #f57200 */
+	--clr-secondary-7: 28, 100%, 46%; /* #eb6d00 */
+	--clr-secondary-8: 28, 100%, 39%; /* #c75d00 */
+	--clr-secondary-9: 28, 100%, 34%; /* #ad5100 */
+	/* on secondary #ffffff */
+	--clr-on-secondary-0: 28, 100%, 96%; /* #fff4eb */
+	--clr-on-secondary-1: 28, 100%, 92%; /* #ffe9d6 */
+	--clr-on-secondary-2: 28, 100%, 86%; /* #ffd9b8 */
+	--clr-on-secondary-3: 28, 100%, 80%; /* #ffc999 */
+	--clr-on-secondary-4: 28, 100%, 60%; /* #ff9233 */
+	--clr-on-secondary-5: 28, 100%, 50%; /* #ff7700 */
+	--clr-on-secondary-6: 28, 100%, 48%; /* #f57200 */
+	--clr-on-secondary-7: 28, 100%, 46%; /* #eb6d00 */
+	--clr-on-secondary-8: 28, 100%, 39%; /* #c75d00 */
+	--clr-on-secondary-9: 28, 100%, 34%; /* #ad5100 */
+
+	/* surface #404d53 */
+	--clr-surface-0: 199, 34%, 11%; /* #132026 */
+	--clr-surface-1: 199, 27%, 15%; /* #1c2a31 */
+	--clr-surface-2: 199, 19%, 22%; /* #2d3c43 */
+	--clr-surface-3: 199, 16%, 25%; /* #36434a */
+	--clr-surface-4: 199, 13%, 29%; /* #404d54 */
+	--clr-surface-5: 199, 6%, 46%; /* #6e787c */
+	--clr-surface-6: 199, 4%, 75%; /* #bdc0c2 */
+	--clr-surface-7: 199, 4%, 83%; /* #d2d4d5 */
+	--clr-surface-8: 199, 3%, 90%; /* #eeeeee */
+	--clr-surface-9: 199, 2%, 100%; /* #ffffff */
+	/* on surface #eeeeee */
+	--clr-on-surface-0: 199, 34%, 11%; /* #132026 */
+	--clr-on-surface-1: 199, 27%, 15%; /* #1c2a31 */
+	--clr-on-surface-2: 199, 19%, 22%; /* #2d3c43 */
+	--clr-on-surface-3: 199, 16%, 25%; /* #36434a */
+	--clr-on-surface-4: 199, 13%, 29%; /* #404d54 */
+	--clr-on-surface-5: 199, 6%, 46%; /* #6e787c */
+	--clr-on-surface-6: 199, 4%, 75%; /* #bdc0c2 */
+	--clr-on-surface-7: 199, 4%, 83%; /* #d2d4d5 */
+	--clr-on-surface-8: 199, 3%, 90%; /* #e5e6e6 */
+	--clr-on-surface-9: 199, 2%, 95%; /* #f2f2f3 */
+
+	/* success #40BF41 */
+	--clr-success-0: 120, 92%, 98%; /* #f5fff5 */
+	--clr-success-1: 120, 88%, 95%; /* #e7fde7 */
+	--clr-success-2: 120, 83%, 90%; /* #d0fbd0 */
+	--clr-success-3: 120, 79%, 85%; /* #bbf7bb */
+	--clr-success-4: 120, 63%, 65%; /* #6ede6e */
+	--clr-success-5: 120, 50%, 50%; /* #40bf40 */
+	--clr-success-6: 120, 54%, 46%; /* #36b536 */
+	--clr-success-7: 120, 58%, 42%; /* #2da92d */
+	--clr-success-8: 120, 68%, 33%; /* #1b8d1b */
+	--clr-success-9: 120, 74%, 27%; /* #127812 */
+	/* on success #ffffff */
+	--clr-on-success-0: 120, 92%, 98%; /* #f5fff5 */
+	--clr-on-success-1: 120, 88%, 95%; /* #e7fde7 */
+	--clr-on-success-2: 120, 83%, 90%; /* #d0fbd0 */
+	--clr-on-success-3: 120, 79%, 85%; /* #bbf7bb */
+	--clr-on-success-4: 120, 63%, 65%; /* #6ede6e */
+	--clr-on-success-5: 120, 50%, 50%; /* #40bf40 */
+	--clr-on-success-6: 120, 54%, 46%; /* #36b536 */
+	--clr-on-success-7: 120, 58%, 42%; /* #2da92d */
+	--clr-on-success-8: 120, 68%, 33%; /* #1b8d1b */
+	--clr-on-success-9: 120, 74%, 27%; /* #127812 */
+
+	/* warning #f6d32d */
+	--clr-warning-0: 50, 99%, 97%; /* #fffcf0 */
+	--clr-warning-1: 50, 99%, 93%; /* #fff9db */
+	--clr-warning-2: 50, 98%, 89%; /* #fef5c7 */
+	--clr-warning-3: 50, 97%, 84%; /* #fef1af */
+	--clr-warning-4: 50, 95%, 67%; /* #fbe05b */
+	--clr-warning-5: 50, 92%, 57%; /* #f6d52c */
+	--clr-warning-6: 50, 84%, 53%; /* #ecca22 */
+	--clr-warning-7: 50, 77%, 50%; /* #e2c11d */
+	--clr-warning-8: 50, 84%, 40%; /* #bc9f10 */
+	--clr-warning-9: 50, 88%, 34%; /* #a38a0a */
+	/* on warning #111111 */
+	--clr-on-warning-0: 50, 99%, 97%; /* #fffcf0 */
+	--clr-on-warning-1: 50, 99%, 93%; /* #fff9db */
+	--clr-on-warning-2: 50, 98%, 89%; /* #fef5c7 */
+	--clr-on-warning-3: 50, 97%, 84%; /* #fef1af */
+	--clr-on-warning-4: 50, 95%, 67%; /* #fbe05b */
+	--clr-on-warning-5: 50, 92%, 57%; /* #f6d52c */
+	--clr-on-warning-6: 50, 84%, 53%; /* #ecca22 */
+	--clr-on-warning-7: 50, 77%, 50%; /* #e2c11d */
+	--clr-on-warning-8: 50, 84%, 40%; /* #bc9f10 */
+	--clr-on-warning-9: 50, 88%, 34%; /* #a38a0a */
+
+	/* error #e01b24 */
+	--clr-error-0: -3, 97%, 97%; /* #fff0f1 */
+	--clr-error-1: -3, 95%, 93%; /* #fedcde */
+	--clr-error-2: -3, 93%, 87%; /* #fdbfc2 */
+	--clr-error-3: -3, 91%, 81%; /* #fba2a7 */
+	--clr-error-4: -3, 83%, 61%; /* #ee4951 */
+	--clr-error-5: -3, 78%, 49%; /* #de1b25 */
+	--clr-error-6: -3, 81%, 46%; /* #d41620 */
+	--clr-error-7: -3, 83%, 43%; /* #c9131c */
+	--clr-error-8: -3, 89%, 35%; /* #a90a12 */
+	--clr-error-9: -3, 92%, 30%; /* #93060d */
+	/* on error #ffffff */
+	--clr-on-error-0: -3, 97%, 97%; /* #fff0f1 */
+	--clr-on-error-1: -3, 95%, 93%; /* #fedcde */
+	--clr-on-error-2: -3, 93%, 87%; /* #fdbfc2 */
+	--clr-on-error-3: -3, 91%, 81%; /* #fba2a7 */
+	--clr-on-error-4: -3, 83%, 61%; /* #ee4951 */
+	--clr-on-error-5: -3, 78%, 49%; /* #de1b25 */
+	--clr-on-error-6: -3, 81%, 46%; /* #d41620 */
+	--clr-on-error-7: -3, 83%, 43%; /* #c9131c */
+	--clr-on-error-8: -3, 89%, 35%; /* #a90a12 */
+	--clr-on-error-9: -3, 92%, 30%; /* #93060d */
+
+	/***
+	** Buttons
+	***/
+	--button-padding-y: 0.75rem;
+	--button-padding-x: 2rem;
+	--button-border-radius: 999px;
+	--button-border-size: 2px;
+	--button-shadow-size: 4px;
+	--button-animation-shrink: 1px;
+	--button-animation-shadow: 2px;
+}
